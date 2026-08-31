@@ -1,6 +1,7 @@
 /* ==========================================================================
    UNDANGAN PERNIKAHAN DIGITAL YUSUP & TIKA
-   STYLE: ULTRA-MODERN MINIMALIST LUXURY (PURE SANS-SERIF)
+   STYLE: ULTRA-MODERN MINIMALIST LUXURY
+   FONT: BRICOLAGE GROTESQUE (Display & Names) + PLUS JAKARTA SANS (Body/UI)
    PALETTE: DPRK COLORWAY (Oceanic Navy, Crimson Red, Golden Star, Porcelain White)
    ========================================================================== */
 
@@ -33,12 +34,12 @@
   --border-medium: rgba(13, 34, 64, 0.18);
   --border-gold: rgba(226, 180, 59, 0.4);
 
-  --shadow-sm: 0 4px 12px rgba(11, 25, 44, 0.04);
+  --shadow-sm: 0 4px 14px rgba(11, 25, 44, 0.04);
   --shadow-md: 0 12px 32px rgba(11, 25, 44, 0.08);
   --shadow-lg: 0 20px 48px rgba(11, 25, 44, 0.12);
 
   /* Typography */
-  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-arabic: 'Scheherazade New', serif;
 
@@ -70,6 +71,11 @@ body {
   align-items: flex-start;
   background-color: var(--navy-darkest);
   overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 /* ==========================================================================
@@ -142,7 +148,7 @@ body {
   font-family: var(--font-display);
   font-size: 2.8rem;
   font-weight: 800;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: var(--navy-deep);
   line-height: 1;
 }
@@ -150,7 +156,7 @@ body {
 .cover-amp {
   font-family: var(--font-display);
   font-size: 1.8rem;
-  font-weight: 900;
+  font-weight: 800;
   color: var(--red-crimson);
   line-height: 1;
 }
@@ -362,14 +368,63 @@ body {
 }
 
 /* ==========================================================================
-   HERO SECTION
+   HERO SECTION (WITH INTEGRATED PHOTO SLOT)
    ========================================================================== */
 .hero-section {
-  padding: 70px 24px 44px;
-  text-align: center;
+  padding: 24px 20px 40px;
   background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy-medium) 100%);
   color: var(--text-inverse);
+  text-align: center;
+}
+
+.hero-photo-container {
+  width: 100%;
+  height: 240px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  background: var(--navy-darkest);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
   position: relative;
+}
+
+.photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 16px;
+}
+
+.photo-placeholder.mini {
+  background: var(--surface-muted);
+  color: var(--text-muted);
+}
+
+.placeholder-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--gold-star);
+  opacity: 0.8;
+}
+
+.placeholder-text {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .hero-badge {
@@ -383,14 +438,14 @@ body {
   border: 1px solid var(--border-gold);
   padding: 6px 16px;
   border-radius: 30px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .hero-names {
   font-family: var(--font-display);
   font-weight: 800;
   line-height: 1.15;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .name-block {
@@ -403,9 +458,9 @@ body {
 .hero-amp-symbol {
   display: inline-block;
   font-size: 1.6rem;
-  font-weight: 900;
+  font-weight: 800;
   color: var(--red-bright);
-  margin: 6px 0;
+  margin: 4px 0;
 }
 
 .hero-meta-bar {
@@ -414,7 +469,7 @@ body {
   gap: 10px;
   align-items: center;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
-  padding-top: 20px;
+  padding-top: 18px;
 }
 
 .meta-item {
@@ -476,7 +531,7 @@ body {
 }
 
 /* ==========================================================================
-   SECTION: SALAM & COUPLE PROFILES (WITH PARENT DETAILS)
+   SECTION: SALAM & COUPLE PROFILES (WITH PHOTOS & PARENTS)
    ========================================================================== */
 .section-couple {
   text-align: center;
@@ -487,7 +542,7 @@ body {
   font-size: 0.92rem;
   color: var(--text-secondary);
   line-height: 1.7;
-  margin-bottom: 36px;
+  margin-bottom: 32px;
 }
 
 .couple-cards-wrapper {
@@ -502,9 +557,12 @@ body {
   background: var(--surface-subtle);
   border: 1px solid var(--border-hairline);
   border-radius: 20px;
-  padding: 24px 20px;
+  padding: 20px;
   text-align: left;
   box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
@@ -514,33 +572,19 @@ body {
   border-color: var(--border-medium);
 }
 
-.profile-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+.couple-photo-slot {
+  width: 100%;
+  height: 180px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--surface-muted);
+  border: 1px solid var(--border-hairline);
 }
 
-.avatar-monogram {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-medium) 100%);
-  color: var(--gold-star);
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 16px var(--navy-glow);
-  flex-shrink: 0;
-}
-
-.profile-title-block {
+.profile-details {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
 }
 
 .role-pill {
@@ -553,16 +597,17 @@ body {
 
 .profile-name {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 800;
   color: var(--navy-deep);
   line-height: 1.15;
 }
 
 .birth-order {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-secondary);
+  margin-bottom: 10px;
 }
 
 .parents-block {
@@ -593,7 +638,7 @@ body {
   background: var(--red-crimson);
   color: var(--text-inverse);
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 800;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
@@ -1069,7 +1114,7 @@ body {
 .footer-couple {
   font-family: var(--font-display);
   font-size: 2rem;
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: 2px;
   color: var(--gold-star);
   margin-bottom: 6px;

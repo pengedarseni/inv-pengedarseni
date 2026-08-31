@@ -12,10 +12,10 @@
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#0D2240">
 
-  <!-- Google Fonts: Outfit (Modern Geometric Display Sans) & Plus Jakarta Sans (Clean UI Sans) -->
+  <!-- Google Fonts: Bricolage Grotesque (Modern Display Sans) & Plus Jakarta Sans (Clean UI Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -42,15 +42,14 @@
     </button>
   </div>
 
-  <!-- COVER / OPENING SCREEN (Clean Modern Minimalist) -->
+  <!-- COVER / OPENING SCREEN -->
   <div class="cover-overlay" id="coverOverlay">
-    <div class="cover-backdrop"></div>
     <div class="cover-card">
       <div class="cover-tag">THE WEDDING ANNOUNCEMENT</div>
       
       <div class="cover-hero-title">
         <span class="cover-first-name">YUSUP</span>
-        <span class="cover-amp">&</span>
+        <span class="cover-amp">&amp;</span>
         <span class="cover-second-name">TIKA</span>
       </div>
 
@@ -77,23 +76,33 @@
   <!-- MAIN INVITATION CONTAINER -->
   <main class="invitation-container" id="mainContent">
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION WITH PHOTO SLOT -->
     <header class="hero-section">
-      <div class="hero-badge">WEDDING ANNOUNCEMENT</div>
-      <h1 class="hero-names">
-        <span class="name-block">MUHAMAD YUSUP</span>
-        <span class="hero-amp-symbol">&</span>
-        <span class="name-block">TIKA OKTAVIA HENINGSIH</span>
-      </h1>
-      
-      <div class="hero-meta-bar">
-        <div class="meta-item">
-          <i data-lucide="calendar"></i>
-          <span>Rabu, 9 September 2026</span>
+      <div class="hero-photo-container photo-slot">
+        <img src="img/hero.jpg" alt="Muhamad Yusup & Tika Oktavia Heningsih" class="photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="photo-placeholder">
+          <i data-lucide="image" class="placeholder-icon"></i>
+          <span class="placeholder-text">Foto Bersama &middot; simpan di img/hero.jpg</span>
         </div>
-        <div class="meta-item">
-          <i data-lucide="map-pin"></i>
-          <span>Kuningan, Jawa Barat</span>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-badge">WEDDING ANNOUNCEMENT</div>
+        <h1 class="hero-names">
+          <span class="name-block">MUHAMAD YUSUP</span>
+          <span class="hero-amp-symbol">&amp;</span>
+          <span class="name-block">TIKA OKTAVIA HENINGSIH</span>
+        </h1>
+        
+        <div class="hero-meta-bar">
+          <div class="meta-item">
+            <i data-lucide="calendar"></i>
+            <span>Rabu, 9 September 2026</span>
+          </div>
+          <div class="meta-item">
+            <i data-lucide="map-pin"></i>
+            <span>Kuningan, Jawa Barat</span>
+          </div>
         </div>
       </div>
     </header>
@@ -112,7 +121,7 @@
       <span class="verse-surah">QS. Ar-Rum: 21</span>
     </section>
 
-    <!-- SECTION: SALAM & PROFIL MEMPELAI BESERTA ORANG TUA -->
+    <!-- SECTION: SALAM & PROFIL MEMPELAI BESERTA FOTO & ORANG TUA -->
     <section class="section section-couple">
       <div class="section-badge-center">MEMPELAI</div>
       <h2 class="section-title">Assalamu'alaikum Wr. Wb.</h2>
@@ -124,17 +133,23 @@
         
         <!-- Kartu Mempelai Pria -->
         <div class="couple-profile-card">
-          <div class="profile-header">
-            <div class="avatar-monogram">MY</div>
-            <div class="profile-title-block">
-              <span class="role-pill">MEMPELAI PRIA</span>
-              <h3 class="profile-name">Muhamad Yusup</h3>
-              <span class="birth-order">Putra Pertama</span>
+          <div class="couple-photo-slot photo-slot">
+            <img src="img/yusup.jpg" alt="Muhamad Yusup" class="photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="photo-placeholder mini">
+              <i data-lucide="user" class="placeholder-icon"></i>
+              <span class="placeholder-text">Foto Yusup (img/yusup.jpg)</span>
             </div>
           </div>
-          <div class="parents-block">
-            <span class="parents-label">Putra dari pasangan:</span>
-            <strong class="parents-names">Bpk. Ade Suhendi &amp; Ibu Maghfiroh</strong>
+
+          <div class="profile-details">
+            <span class="role-pill">MEMPELAI PRIA</span>
+            <h3 class="profile-name">Muhamad Yusup</h3>
+            <span class="birth-order">Putra Pertama</span>
+            
+            <div class="parents-block">
+              <span class="parents-label">Putra dari pasangan:</span>
+              <strong class="parents-names">Bpk. Ade Suhendi &amp; Ibu Maghfiroh</strong>
+            </div>
           </div>
         </div>
 
@@ -142,17 +157,23 @@
 
         <!-- Kartu Mempelai Wanita -->
         <div class="couple-profile-card">
-          <div class="profile-header">
-            <div class="avatar-monogram">TH</div>
-            <div class="profile-title-block">
-              <span class="role-pill">MEMPELAI WANITA</span>
-              <h3 class="profile-name">Tika Oktavia Heningsih</h3>
-              <span class="birth-order">Putri Ke-2</span>
+          <div class="couple-photo-slot photo-slot">
+            <img src="img/tika.jpg" alt="Tika Oktavia Heningsih" class="photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="photo-placeholder mini">
+              <i data-lucide="user" class="placeholder-icon"></i>
+              <span class="placeholder-text">Foto Tika (img/tika.jpg)</span>
             </div>
           </div>
-          <div class="parents-block">
-            <span class="parents-label">Putri dari pasangan:</span>
-            <strong class="parents-names">Bpk. Dedy Syarudin &amp; Ibu Ida Ningsih</strong>
+
+          <div class="profile-details">
+            <span class="role-pill">MEMPELAI WANITA</span>
+            <h3 class="profile-name">Tika Oktavia Heningsih</h3>
+            <span class="birth-order">Putri Ke-2</span>
+            
+            <div class="parents-block">
+              <span class="parents-label">Putri dari pasangan:</span>
+              <strong class="parents-names">Bpk. Dedy Syarudin &amp; Ibu Ida Ningsih</strong>
+            </div>
           </div>
         </div>
 
