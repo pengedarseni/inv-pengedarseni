@@ -1,32 +1,32 @@
 /* ==========================================================================
-   UNDANGAN YUSUP & TIKA — "MENDUNG KUNINGAN"
-   Palet malam indigo terinspirasi motif awan (mega mendung, Ciayumajakuning)
-   dipadu warna soga (coklat batik) sebagai aksen. Layout editorial asimetris,
-   bukan tumpukan kartu simetris ala template.
+   UNDANGAN YUSUP & TIKA — "DPRK MINIMALIST EDITORIAL"
+   Palet Korea Utara: Deep Oceanic Navy (#0D2240), DPRK Crimson Red (#C8102E),
+   Golden Star (#E2B43B), dan Porcelain White (#FFFFFF & #F4F6F9).
+   Layout editorial berkelas, asimetris, dan kontras tinggi.
    ========================================================================== */
 
 :root {
-  /* Warna dasar */
-  --ink: #10182B;
-  --indigo: #16233F;
-  --indigo-2: #223458;
-  --paper: #F2ECDC;
-  --paper-2: #E9DFC5;
-  --cream: #FBF8F0;
+  /* Warna dasar DPRK Aesthetic */
+  --ink: #0A1324;
+  --indigo: #0D2240;
+  --indigo-2: #153360;
+  --paper: #F4F6F9;
+  --paper-2: #E5EBF4;
+  --cream: #FFFFFF;
 
-  --soga: #8A4A28;
-  --soga-light: #B87142;
-  --brass: #C9A24A;
+  --soga: #C8102E;        /* DPRK Crimson Red */
+  --soga-light: #E02B47;  /* Bright Coral Crimson */
+  --brass: #E2B43B;       /* Golden Star Yellow */
 
-  --text-on-paper: #21201B;
-  --text-on-paper-muted: #6B6455;
-  --text-on-ink: #F2ECDC;
-  --text-on-ink-muted: #AFB6C6;
+  --text-on-paper: #0A1324;
+  --text-on-paper-muted: #4A5568;
+  --text-on-ink: #F4F6F9;
+  --text-on-ink-muted: #94A3B8;
 
-  --line: rgba(33, 32, 27, 0.14);
-  --line-on-ink: rgba(242, 236, 220, 0.18);
+  --line: rgba(10, 19, 36, 0.12);
+  --line-on-ink: rgba(244, 246, 249, 0.18);
 
-  --shadow-card: 0 18px 40px rgba(16, 24, 43, 0.16);
+  --shadow-card: 0 18px 40px rgba(10, 19, 36, 0.14);
 
   /* Tipografi */
   --font-display: 'Fraunces', Georgia, serif;

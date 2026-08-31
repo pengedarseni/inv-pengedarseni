@@ -188,97 +188,201 @@ document.addEventListener('DOMContentLoaded', () => {
     window.open(googleCalUrl, '_blank');
   });
 
-  // 6. Wishes & Prayers Board (Local Storage + Preloaded Initial Wishes)
-  const defaultWishes = [
-    {
-      name: "Keluarga Besar Heningsih",
-      relation: "Keluarga / Kerabat",
-      message: "Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khoir. Semoga Yusup & Tika menjadi keluarga yang sakinah mawaddah warahmah, dilimpahi keberkahan dan kebahagiaan selalu.",
-      time: "Baru saja"
-    },
-    {
-      name: "Dimas & Rina",
-      relation: "Sahabat / Teman",
-      message: "Selamat ya Yusup dan Tika! Turut berbahagia atas akad nikahnya. Semoga prosesi akad berjalan lancar dan langgeng sampai kakek nenek.",
-      time: "1 jam yang lalu"
-    }
-  ];
+  // 6. Supabase Realtime Database for Wishes & Prayers Board
+  const SUPABASE_URL = "https://gvvsetaxpgrlcoelljgl.supabase.co";
+  const SUPABASE_ANON_KEY = "sb_publishable_x7BtMTORMjsSnfwaVUIdlw_R519WJTu";
+  
+  let supabase = null;
+  if (window.supabase) {
+    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  }
 
-  const STORAGE_KEY = 'yusup_tika_wedding_wishes';
   const wishesListEl = document.getElementById('wishesList');
   const wishesCountEl = document.getElementById('wishesCount');
   const wishesForm = document.getElementById('wishesForm');
 
-  function getStoredWishes() {
-    const data = localStorage.getItem(STORAGE_KEY);
-    return data ? JSON.parse(data) : defaultWishes;
-  }
+  let wishesData = [];
 
-  function saveWishes(wishes) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(wishes));
-  }
+  function formatRelativeTime(dateString) {
+    if (!dateString) return 'Baru saja';
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffSec = Math.floor((now - date) / 1000);
 
-  function renderWishes() {
-    const wishes = getStoredWishes();
-    wishesCountEl.textContent = wishes.length;
-    wishesListEl.innerHTML = '';
-
-    wishes.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'wish-card';
-      card.innerHTML = `
-        <div class="wish-card-header">
-          <span class="wish-author">${escapeHtml(item.name)}</span>
-          <span class="wish-relation">${escapeHtml(item.relation || 'Tamu')}</span>
-        </div>
-        <p class="wish-content">${escapeHtml(item.message)}</p>
-        <span class="wish-time">${item.time || 'Terkirim'}</span>
-      `;
-      wishesListEl.appendChild(card);
+    if (diffSec < 60) return 'Baru saja';
+    const diffMin = Math.floor(diffSec / 60);
+    if (diffMin < 60) return `${diffMin} menit yang lalu`;
+    const diffHours = Math.floor(diffMin / 60);
+    if (diffHours < 24) return `${diffHours} jam yang lalu`;
+    const diffDays = Math.floor(diffHours / 24);
+    if (diffDays < 7) return `${diffDays} hari yang lalu`;
+    
+    // Format full date
+    return date.toLocaleDateString('id-ID', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
     });
   }
 
   function escapeHtml(text) {
+    if (!text) return '';
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
   }
 
-  wishesForm.addEventListener('submit', (e) => {
+  function createWishCard(item) {
+    const card = document.createElement('div');
+    card.className = 'wish-card';
+    card.id = `wish-${item.id || Math.random()}`;
+    const timeFormatted = item.created_at ? formatRelativeTime(item.created_at) : (item.time || 'Baru saja');
+
+    card.innerHTML = `
+      <div class="wish-card-header">
+        <span class="wish-author">${escapeHtml(item.name)}</span>
+        <span class="wish-relation">${escapeHtml(item.relation || 'Sahabat / Teman')}</span>
+      </div>
+      <p class="wish-content">${escapeHtml(item.message)}</p>
+      <span class="wish-time">${timeFormatted}</span>
+    `;
+    return card;
+  }
+
+  function renderAllWishes() {
+    wishesCountEl.textContent = wishesData.length;
+    wishesListEl.innerHTML = '';
+
+    if (wishesData.length === 0) {
+      wishesListEl.innerHTML = `
+        <div style="text-align:center; padding: 24px; color: var(--text-on-paper-muted); font-size: 0.88rem;">
+          Belum ada ucapan. Jadilah yang pertama memberikan doa restu!
+        </div>
+      `;
+      return;
+    }
+
+    wishesData.forEach(item => {
+      wishesListEl.appendChild(createWishCard(item));
+    });
+  }
+
+  async function fetchWishes() {
+    if (!supabase) return;
+    try {
+      const { data, error } = await supabase
+        .from('wishes')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('Error fetching wishes from Supabase:', error);
+        return;
+      }
+
+      if (data) {
+        wishesData = data;
+        renderAllWishes();
+      }
+    } catch (err) {
+      console.error('Failed to load wishes:', err);
+    }
+  }
+
+  function setupRealtimeWishes() {
+    if (!supabase) return;
+    try {
+      supabase
+        .channel('public:wishes')
+        .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'wishes' }, (payload) => {
+          const newWish = payload.new;
+          // Check if not already in list
+          if (!wishesData.some(w => w.id === newWish.id)) {
+            wishesData.unshift(newWish);
+            wishesCountEl.textContent = wishesData.length;
+            
+            // If empty message placeholder exists, clear it
+            if (wishesListEl.querySelector('div[style*="text-align:center"]')) {
+              wishesListEl.innerHTML = '';
+            }
+
+            const card = createWishCard(newWish);
+            wishesListEl.prepend(card);
+          }
+        })
+        .subscribe();
+    } catch (err) {
+      console.warn('Realtime subscription error:', err);
+    }
+  }
+
+  // Handle submit form
+  wishesForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = document.getElementById('wishesName').value.trim();
-    const relation = document.getElementById('wishesRelation').value;
-    const message = document.getElementById('wishesMessage').value.trim();
+    const nameInput = document.getElementById('wishesName');
+    const relationInput = document.getElementById('wishesRelation');
+    const messageInput = document.getElementById('wishesMessage');
+    const submitBtn = wishesForm.querySelector('button[type="submit"]');
+
+    const name = nameInput.value.trim();
+    const relation = relationInput.value;
+    const message = messageInput.value.trim();
 
     if (!name || !message) return;
 
-    const newWish = {
-      name,
-      relation,
-      message,
-      time: 'Baru saja'
-    };
+    // Loading state
+    const originalBtnHtml = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<span>Mengirimkan doa...</span>`;
 
-    const currentWishes = getStoredWishes();
-    currentWishes.unshift(newWish);
-    saveWishes(currentWishes);
-    renderWishes();
+    try {
+      if (supabase) {
+        const { data, error } = await supabase
+          .from('wishes')
+          .insert([{ name, relation, message }])
+          .select();
 
-    // Reset textarea
-    document.getElementById('wishesMessage').value = '';
+        if (error) {
+          throw error;
+        }
 
-    // Trigger mini confetti
-    if (typeof confetti === 'function') {
-      confetti({
-        particleCount: 30,
-        spread: 40,
-        origin: { y: 0.8 },
-        colors: ['#B88E4F', '#FAF8F5']
-      });
+        if (data && data.length > 0) {
+          const inserted = data[0];
+          if (!wishesData.some(w => w.id === inserted.id)) {
+            wishesData.unshift(inserted);
+            wishesCountEl.textContent = wishesData.length;
+            if (wishesListEl.querySelector('div[style*="text-align:center"]')) {
+              wishesListEl.innerHTML = '';
+            }
+            wishesListEl.prepend(createWishCard(inserted));
+          }
+        }
+      }
+
+      // Reset message field
+      messageInput.value = '';
+
+      // Trigger celebration confetti
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 40,
+          spread: 50,
+          origin: { y: 0.8 },
+          colors: ['#C8102E', '#E2B43B', '#0D2240', '#FFFFFF']
+        });
+      }
+    } catch (err) {
+      console.error('Error sending wish to Supabase:', err);
+      alert('Doa terkirim!');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHtml;
     }
   });
 
-  renderWishes();
+  // Initial fetch and subscription
+  fetchWishes();
+  setupRealtimeWishes();
 
   // 7. WhatsApp Share Link Generator
   const btnShareWA = document.getElementById('btnShareWA');
