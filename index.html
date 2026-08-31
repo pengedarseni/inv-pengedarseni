@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Pernikahan Yusup & Tika | 9 September 2026</title>
-  
+
   <!-- SEO & OpenGraph / WhatsApp Preview Metadata -->
   <meta name="description" content="Kabar bahagia dan permohonan doa restu pernikahan Muhamad Yusup & Tika Oktavia Heningsih - Rabu, 9 September 2026.">
   <meta property="og:title" content="Pernikahan Yusup & Tika">
   <meta property="og:description" content="Kabar bahagia dan permohonan doa restu pernikahan Muhamad Yusup & Tika Oktavia Heningsih.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#FAF8F5">
+  <meta name="theme-color" content="#152238">
 
-  <!-- Google Fonts: Cormorant Garamond, Cinzel, Plus Jakarta Sans, Scheherazade New -->
+  <!-- Google Fonts: Fraunces (display), Plus Jakarta Sans (body/UI), Scheherazade New (arabic) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -39,24 +39,31 @@
     </button>
   </div>
 
-  <!-- COVER / OPENING SCREEN (Interactive Gatefold / Envelope) -->
+  <!-- COVER / OPENING SCREEN -->
   <div class="cover-overlay" id="coverOverlay">
-    <div class="cover-backdrop-pattern"></div>
+    <div class="cover-panel">
+      <div class="cover-motif" aria-hidden="true">
+        <svg viewBox="0 0 120 400" preserveAspectRatio="none">
+          <path d="M0,40 C 30,10 30,70 60,50 C 90,30 90,90 120,60 L120,400 L0,400 Z" />
+        </svg>
+      </div>
+      <div class="cover-arabic" dir="rtl">بسم الله الرحمن الرحيم</div>
+    </div>
+
     <div class="cover-card">
-      <div class="cover-badge">KABAR BAHAGIA & DOA RESTU</div>
-      <p class="cover-sub-title">The Wedding Announcement of</p>
-      <h1 class="cover-couple-name">Yusup <span>&</span> Tika</h1>
-      <p class="cover-date">09 • 09 • 2026</p>
-      
+      <span class="cover-eyebrow">Kabar bahagia, dengan doa restu</span>
+      <h1 class="cover-couple-name">Yusup <em>&amp;</em> Tika</h1>
+      <p class="cover-date">9 September 2026 &middot; Kuningan</p>
+
       <div class="guest-box">
-        <span class="guest-greeting">Kepada Yth. Bapak/Ibu/Saudara/i:</span>
+        <span class="guest-greeting">Kepada Yth. Bapak/Ibu/Saudara/i</span>
         <h2 class="guest-name" id="guestNameCover">Tamu Undangan</h2>
         <span class="guest-note">Mohon maaf bila ada kesalahan penulisan nama/gelar</span>
       </div>
 
       <button class="btn-open-invitation" id="btnOpenInvitation" type="button">
         <span class="btn-text">Buka Undangan</span>
-        <i data-lucide="mail-open" class="btn-icon"></i>
+        <i data-lucide="arrow-right" class="btn-icon"></i>
       </button>
     </div>
   </div>
@@ -66,17 +73,21 @@
 
     <!-- HERO SECTION -->
     <header class="hero-section">
-      <div class="hero-ornament-top"></div>
-      <span class="hero-tagline">WEDDING ANNOUNCEMENT</span>
-      <h1 class="hero-names">Muhamad Yusup<br><span class="hero-amp">&</span><br>Tika Oktavia Heningsih</h1>
-      <div class="hero-divider">
-        <span class="line"></span>
-        <i data-lucide="heart" class="heart-icon"></i>
-        <span class="line"></span>
+      <div class="hero-photo photo-slot">
+        <!-- Ganti div ini dengan: <img src="img/hero.jpg" alt="Yusup & Tika"> -->
+        <i data-lucide="image" class="photo-slot-icon"></i>
+        <span class="photo-slot-label">Foto berdua &middot; ganti di img/hero.jpg</span>
       </div>
-      <p class="hero-date">RABU, 9 SEPTEMBER 2026</p>
-      <p class="hero-loc">KUNINGAN, JAWA BARAT</p>
+      <div class="hero-caption">
+        <span class="hero-tagline">Insyaallah kami menikah</span>
+        <h1 class="hero-names">Muhamad Yusup <span class="amp">&amp;</span> Tika Oktavia Heningsih</h1>
+        <p class="hero-date">Rabu, 9 September 2026 &middot; Kuningan, Jawa Barat</p>
+      </div>
     </header>
+
+    <div class="cloud-divider" aria-hidden="true">
+      <svg viewBox="0 0 400 40" preserveAspectRatio="none"><path d="M0,20 C40,0 60,40 100,20 C140,0 160,40 200,20 C240,0 260,40 300,20 C340,0 360,40 400,20" /></svg>
+    </div>
 
     <!-- SECTION: AYAT & SALAM -->
     <section class="section section-quote">
@@ -89,140 +100,134 @@
       <p class="verse-translation">
         "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir."
       </p>
-      <span class="verse-surah">— QS. Ar-Rum: 21 —</span>
+      <span class="verse-surah">QS. Ar-Rum: 21</span>
     </section>
 
     <!-- SECTION: SALAM & MEMPELAI -->
     <section class="section section-couple">
-      <h2 class="section-title">Assalamu'alaikum Wr. Wb.</h2>
+      <h2 class="section-title">Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
       <p class="section-intro">
         Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyampaikan kabar bahagia terkait rencana pernikahan kami:
       </p>
 
       <div class="couple-grid">
         <!-- Mempelai Pria -->
-        <div class="couple-card">
-          <div class="couple-avatar-frame">
-            <div class="couple-avatar-inner">
-              <span class="monogram">MY</span>
-            </div>
+        <div class="couple-card couple-card--groom">
+          <div class="couple-photo photo-slot">
+            <!-- Ganti div ini dengan: <img src="img/yusup.jpg" alt="Muhamad Yusup"> -->
+            <i data-lucide="image" class="photo-slot-icon"></i>
           </div>
           <h3 class="couple-name">Muhamad Yusup</h3>
-          <p class="couple-desc">Mempelai Pria</p>
+          <p class="couple-desc">Putra dari Bapak &amp; Ibu keluarga Yusup</p>
         </div>
 
-        <div class="couple-connector">
-          <div class="connector-line"></div>
-          <div class="connector-symbol">&</div>
-          <div class="connector-line"></div>
-        </div>
+        <div class="couple-connector" aria-hidden="true">&amp;</div>
 
         <!-- Mempelai Wanita -->
-        <div class="couple-card">
-          <div class="couple-avatar-frame">
-            <div class="couple-avatar-inner">
-              <span class="monogram">TH</span>
-            </div>
+        <div class="couple-card couple-card--bride">
+          <div class="couple-photo photo-slot">
+            <!-- Ganti div ini dengan: <img src="img/tika.jpg" alt="Tika Oktavia Heningsih"> -->
+            <i data-lucide="image" class="photo-slot-icon"></i>
           </div>
           <h3 class="couple-name">Tika Oktavia Heningsih</h3>
-          <p class="couple-desc">Mempelai Wanita</p>
+          <p class="couple-desc">Putri dari Bapak &amp; Ibu keluarga Heningsih</p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION: WAKTU & HITUNG MUNDUR -->
+    <!-- SECTION: WAKTU & HITUNG MUNDUR (TICKET STUB) -->
     <section class="section section-event">
-      <div class="card-elevated">
-        <span class="card-subtitle">WAKTU & TEMPAT PELAKSANAAN</span>
-        <h2 class="card-title">Akad Nikah</h2>
-        
-        <!-- Live Countdown Timer -->
-        <div class="countdown-wrapper" id="countdownWrapper">
-          <div class="countdown-unit">
-            <span class="countdown-val" id="cdDays">00</span>
-            <span class="countdown-lbl">Hari</span>
+      <div class="ticket-card">
+        <div class="ticket-main">
+          <span class="card-subtitle">Waktu &amp; tempat pelaksanaan</span>
+          <h2 class="card-title">Akad Nikah</h2>
+
+          <!-- Live Countdown Timer -->
+          <div class="countdown-wrapper" id="countdownWrapper">
+            <div class="countdown-unit">
+              <span class="countdown-val" id="cdDays">00</span>
+              <span class="countdown-lbl">Hari</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-val" id="cdHours">00</span>
+              <span class="countdown-lbl">Jam</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-val" id="cdMinutes">00</span>
+              <span class="countdown-lbl">Menit</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-val" id="cdSeconds">00</span>
+              <span class="countdown-lbl">Detik</span>
+            </div>
           </div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-unit">
-            <span class="countdown-val" id="cdHours">00</span>
-            <span class="countdown-lbl">Jam</span>
-          </div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-unit">
-            <span class="countdown-val" id="cdMinutes">00</span>
-            <span class="countdown-lbl">Menit</span>
-          </div>
-          <div class="countdown-sep">:</div>
-          <div class="countdown-unit">
-            <span class="countdown-val" id="cdSeconds">00</span>
-            <span class="countdown-lbl">Detik</span>
+
+          <div class="event-details-list">
+            <div class="detail-item">
+              <i data-lucide="calendar" class="detail-icon"></i>
+              <div class="detail-info">
+                <span class="detail-label">Hari &amp; tanggal</span>
+                <strong class="detail-value">Rabu, 9 September 2026</strong>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <i data-lucide="clock" class="detail-icon"></i>
+              <div class="detail-info">
+                <span class="detail-label">Waktu</span>
+                <strong class="detail-value">09.00 WIB &ndash; selesai</strong>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <i data-lucide="map-pin" class="detail-icon"></i>
+              <div class="detail-info">
+                <span class="detail-label">Tempat</span>
+                <strong class="detail-value">KUA Kecamatan Kuningan</strong>
+                <span class="detail-sub">Jl. Otista No. 87, Kuningan, Jawa Barat</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="event-details-list">
-          <div class="detail-item">
-            <div class="detail-icon"><i data-lucide="calendar"></i></div>
-            <div class="detail-info">
-              <span class="detail-label">Hari & Tanggal</span>
-              <strong class="detail-value">Rabu, 9 September 2026</strong>
-            </div>
-          </div>
+        <div class="ticket-tear" aria-hidden="true"></div>
 
-          <div class="detail-item">
-            <div class="detail-icon"><i data-lucide="clock"></i></div>
-            <div class="detail-info">
-              <span class="detail-label">Waktu</span>
-              <strong class="detail-value">09.00 WIB - Selesai</strong>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon"><i data-lucide="map-pin"></i></div>
-            <div class="detail-info">
-              <span class="detail-label">Tempat</span>
-              <strong class="detail-value">KUA Kecamatan Kuningan</strong>
-              <span class="detail-sub">Jl. Otista No. 87, Kuningan, Jawa Barat</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="event-actions">
+        <div class="ticket-actions">
           <a href="https://maps.google.com/?q=KUA+Kecamatan+Kuningan+Jl.+Otista+No.+87+Kuningan" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
             <i data-lucide="navigation"></i>
-            <span>Buka Google Maps</span>
+            <span>Buka peta lokasi</span>
           </a>
 
           <button id="btnSaveCalendar" class="btn btn-secondary" type="button">
             <i data-lucide="calendar-plus"></i>
-            <span>Simpan ke Kalender</span>
+            <span>Simpan ke kalender</span>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- SECTION: PEMBERITAHUAN INTIMATE WEDDING (MOHON DOA RESTU) -->
+    <!-- SECTION: PEMBERITAHUAN INTIMATE WEDDING -->
     <section class="section section-intimate-notice">
       <div class="notice-box">
-        <div class="notice-icon">
-          <i data-lucide="heart-handshake"></i>
-        </div>
-        <h3 class="notice-title">Pemberitahuan Khusus</h3>
+        <span class="notice-mark" aria-hidden="true">&ldquo;</span>
         <p class="notice-text">
-          Mengingat acara ini diselenggarakan secara sederhana dan terbatas (<strong>hanya dihadiri keluarga inti</strong>), kami memohon maaf yang sebesar-besarnya tidak menggelar resepsi dan belum dapat mengundang Bapak/Ibu/Saudara/i sekalian untuk hadir di lokasi.
+          Mengingat acara ini diselenggarakan secara sederhana dan terbatas &mdash; <strong>hanya dihadiri keluarga inti</strong> &mdash; kami memohon maaf yang sebesar-besarnya karena belum dapat mengundang Bapak/Ibu/Saudara/i untuk hadir di lokasi.
         </p>
-        <div class="notice-divider"></div>
         <p class="notice-text">
-          Tanpa mengurangi rasa hormat, kami sangat mengharapkan <strong>doa restu</strong> dari Bapak/Ibu/Saudara/i sekalian agar prosesi akad nikah kami dapat berjalan lancar serta senantiasa membina keluarga yang <em>sakinah, mawaddah, wa rahmah</em>.
+          Tanpa mengurangi rasa hormat, kami sangat mengharapkan <strong>doa restu</strong> agar prosesi akad nikah berjalan lancar, dan kami senantiasa dapat membina keluarga yang <em>sakinah, mawaddah, wa rahmah</em>.
         </p>
       </div>
     </section>
 
-    <!-- SECTION: KIRIM DOA & UCAPAN (WISHES BOARD) -->
+    <div class="cloud-divider cloud-divider--flip" aria-hidden="true">
+      <svg viewBox="0 0 400 40" preserveAspectRatio="none"><path d="M0,20 C40,0 60,40 100,20 C140,0 160,40 200,20 C240,0 260,40 300,20 C340,0 360,40 400,20" /></svg>
+    </div>
+
+    <!-- SECTION: KIRIM DOA & UCAPAN -->
     <section class="section section-wishes">
       <div class="wishes-header">
-        <span class="section-badge">UNTUK YUSUP & TIKA</span>
-        <h2 class="section-title">Kirim Doa & Ucapan</h2>
+        <span class="section-badge">Untuk Yusup &amp; Tika</span>
+        <h2 class="section-title">Kirim Doa &amp; Ucapan</h2>
         <p class="section-sub">Tuliskan doa serta ucapan terbaik Anda untuk kedua mempelai di bawah ini.</p>
       </div>
 
@@ -233,7 +238,7 @@
         </div>
 
         <div class="form-group">
-          <label for="wishesRelation" class="form-label">Hubungan / Kerabat</label>
+          <label for="wishesRelation" class="form-label">Hubungan / kerabat</label>
           <select id="wishesRelation" class="form-select">
             <option value="Sahabat / Teman">Sahabat / Teman</option>
             <option value="Keluarga / Kerabat">Keluarga / Kerabat</option>
@@ -243,20 +248,20 @@
         </div>
 
         <div class="form-group">
-          <label for="wishesMessage" class="form-label">Pesan Doa & Harapan</label>
+          <label for="wishesMessage" class="form-label">Pesan doa &amp; harapan</label>
           <textarea id="wishesMessage" class="form-textarea" rows="3" placeholder="Tuliskan doa restu yang tulus..." required></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary btn-block">
           <i data-lucide="send"></i>
-          <span>Kirimkan Doa & Ucapan</span>
+          <span>Kirim doa &amp; ucapan</span>
         </button>
       </form>
 
       <!-- Wishes List -->
       <div class="wishes-board">
         <div class="wishes-board-title">
-          <span>Ucapan & Doa Terkirim</span>
+          <span>Ucapan &amp; doa terkirim</span>
           <span class="badge-count" id="wishesCount">0</span>
         </div>
         <div class="wishes-list" id="wishesList">
@@ -265,12 +270,12 @@
       </div>
     </section>
 
-    <!-- SECTION: BAGIKAN LINK (SHARE LINK GENERATOR) -->
+    <!-- SECTION: BAGIKAN LINK -->
     <section class="section section-share">
       <div class="share-box">
-        <h3 class="share-title"><i data-lucide="share-2"></i> Bagikan Undangan Ini</h3>
-        <p class="share-desc">Buat tautan undangan khusus dengan nama penerima dan bagikan langsung via WhatsApp.</p>
-        
+        <h3 class="share-title"><i data-lucide="share-2"></i> Bagikan undangan ini</h3>
+        <p class="share-desc">Buat tautan undangan khusus dengan nama penerima, lalu bagikan langsung lewat WhatsApp.</p>
+
         <div class="share-input-row">
           <input type="text" id="guestNameGenerator" class="form-input" placeholder="Ketik nama tamu (misal: Budi Santoso)">
           <button id="btnShareWA" class="btn btn-wa" type="button">
@@ -283,13 +288,15 @@
 
     <!-- FOOTER -->
     <footer class="footer-section">
-      <div class="footer-divider"></div>
+      <div class="footer-motif" aria-hidden="true">
+        <svg viewBox="0 0 400 40" preserveAspectRatio="none"><path d="M0,20 C40,0 60,40 100,20 C140,0 160,40 200,20 C240,0 260,40 300,20 C340,0 360,40 400,20" /></svg>
+      </div>
       <p class="footer-salam">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
       <p class="footer-sub">Hormat kami yang berbahagia,</p>
-      <h2 class="footer-couple">Yusup & Tika</h2>
-      <p class="footer-date">9 September 2026 • Kuningan</p>
+      <h2 class="footer-couple">Yusup <em>&amp;</em> Tika</h2>
+      <p class="footer-date">9 September 2026 &middot; Kuningan</p>
       <div class="footer-copyright">
-        © 2026 Yusup & Tika Wedding • Created with Love & Elegance
+        Dibuat dengan cinta oleh Pengedar Seni &middot; 2026
       </div>
     </footer>
 
