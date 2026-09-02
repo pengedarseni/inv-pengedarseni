@@ -319,6 +319,48 @@
       </div>
     </section>
 
+    <!-- SECTION: WEDDING GIFT / TANDA KASIH & QRIS -->
+    <section class="section section-gift">
+      <div class="gift-card">
+        <div class="section-badge-center">
+          <i data-lucide="gift"></i>
+          <span>WEDDING GIFT</span>
+        </div>
+        <h2 class="section-title">Tanda Kasih</h2>
+        <p class="section-intro">
+          Doa restu Anda merupakan karunia terindah bagi kami. Namun jika Anda bermaksud memberikan tanda kasih berupa amplop digital, silakan scan atau unduh QRIS di bawah ini:
+        </p>
+
+        <div class="qris-box">
+          <div class="qris-header">
+            <span class="qris-tag">QRIS PEMBAYARAN DIGITAL</span>
+            <span class="qris-merchant-name">Yusup &amp; Tika</span>
+          </div>
+
+          <!-- QR Container Clickable for Lightbox -->
+          <div class="qris-image-container" id="qrisTrigger" title="Klik untuk memperbesar QRIS">
+            <img src="img/barcode.jpeg" alt="QRIS Wedding Gift Yusup & Tika" class="qris-img">
+            <div class="qris-zoom-badge">
+              <i data-lucide="maximize-2"></i>
+              <span>Perbesar / Scan</span>
+            </div>
+          </div>
+
+          <div class="qris-actions">
+            <a href="img/barcode.jpeg" download="QRIS-Wedding-Yusup-Tika.jpeg" class="btn btn-primary btn-block" id="btnDownloadQris">
+              <i data-lucide="download"></i>
+              <span>Unduh Gambar QRIS</span>
+            </a>
+          </div>
+
+          <p class="qris-helper">
+            <i data-lucide="info"></i>
+            <span>Dapat dipindai (*scan*) melalui seluruh aplikasi Mobile Banking (BCA, Mandiri, BRI, BNI, dll) maupun e-Wallet (GoPay, OVO, DANA, ShopeePay).</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- SECTION: KIRIM DOA & UCAPAN (REALTIME SUPABASE) -->
     <section class="section section-wishes">
       <div class="wishes-header">
@@ -400,7 +442,27 @@
       <div class="footer-copyright">
         © 2026 Yusup &amp; Tika Wedding &middot; Forever &amp; Always
       </div>
-    </footer>
+    <!-- QRIS LIGHTBOX MODAL (FULL VIEW FOR EASY SCANNING/DOWNLOADING) -->
+    <div class="qris-modal-overlay" id="qrisModal" aria-hidden="true">
+      <div class="qris-modal-content">
+        <button class="btn-close-modal" id="btnCloseQrisModal" type="button" aria-label="Tutup QRIS">
+          <i data-lucide="x"></i>
+        </button>
+        <div class="qris-modal-header">
+          <h3 class="qris-modal-title">QRIS Tanda Kasih</h3>
+          <p class="qris-modal-sub">Muhamad Yusup &amp; Tika Oktavia</p>
+        </div>
+        <div class="qris-modal-img-wrapper">
+          <img src="img/barcode.jpeg" alt="QRIS Wedding Gift Yusup & Tika Full" class="qris-modal-img">
+        </div>
+        <div class="qris-modal-actions">
+          <a href="img/barcode.jpeg" download="QRIS-Wedding-Yusup-Tika.jpeg" class="btn btn-primary btn-block">
+            <i data-lucide="download"></i>
+            <span>Simpan ke Galeri</span>
+          </a>
+        </div>
+      </div>
+    </div>
 
   </main>
 

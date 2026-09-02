@@ -1444,3 +1444,244 @@ button, input, select, textarea {
   padding-top: 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
+
+/* ==========================================================================
+   SECTION: WEDDING GIFT / TANDA KASIH & QRIS
+   ========================================================================== */
+.section-gift {
+  text-align: center;
+}
+
+.gift-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: 28px;
+  padding: 32px 20px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.qris-box {
+  background: #FAF8F5;
+  border: 1px solid rgba(197, 168, 128, 0.35);
+  border-radius: 22px;
+  padding: 22px 18px;
+  margin-top: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.qris-header {
+  margin-bottom: 16px;
+}
+
+.qris-tag {
+  display: inline-block;
+  font-family: var(--font-royal);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  color: var(--text-gold);
+  background: rgba(197, 168, 128, 0.12);
+  padding: 3px 12px;
+  border-radius: 12px;
+  margin-bottom: 4px;
+}
+
+.qris-merchant-name {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.qris-image-container {
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto 18px;
+  background: #FFFFFF;
+  border: 2px solid rgba(197, 168, 128, 0.4);
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow: 0 8px 24px rgba(142, 110, 60, 0.12);
+  cursor: pointer;
+  position: relative;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  overflow: hidden;
+}
+
+.qris-image-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 30px rgba(142, 110, 60, 0.22);
+  border-color: var(--gold-warm);
+}
+
+.qris-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.qris-zoom-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(17, 31, 51, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--gold-light);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(223, 202, 158, 0.3);
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.qris-zoom-badge i, .qris-zoom-badge svg {
+  width: 12px;
+  height: 12px;
+}
+
+.qris-actions {
+  margin-bottom: 14px;
+}
+
+.qris-helper {
+  font-size: 0.76rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  text-align: left;
+  background: rgba(197, 168, 128, 0.08);
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px dashed rgba(197, 168, 128, 0.25);
+}
+
+.qris-helper i, .qris-helper svg {
+  width: 14px;
+  height: 14px;
+  color: var(--gold-dark);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   QRIS LIGHTBOX MODAL
+   ========================================================================== */
+.qris-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(9, 19, 34, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s var(--ease-smooth), visibility 0.3s;
+}
+
+.qris-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.qris-modal-content {
+  width: 100%;
+  max-width: 360px;
+  background: #FFFFFF;
+  border: 2px solid var(--gold-warm);
+  border-radius: 26px;
+  padding: 24px 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  transform: scale(0.92);
+  transition: transform 0.3s var(--ease-smooth);
+}
+
+.qris-modal-overlay.active .qris-modal-content {
+  transform: scale(1);
+}
+
+.btn-close-modal {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-light);
+  color: var(--text-heading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-close-modal:hover {
+  background: #EAE3D5;
+  transform: rotate(90deg);
+}
+
+.btn-close-modal i, .btn-close-modal svg {
+  width: 18px;
+  height: 18px;
+}
+
+.qris-modal-header {
+  margin-bottom: 16px;
+  padding-right: 24px;
+}
+
+.qris-modal-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.qris-modal-sub {
+  font-size: 0.8rem;
+  color: var(--text-gold);
+  font-weight: 600;
+}
+
+.qris-modal-img-wrapper {
+  background: #FAF8F5;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 18px;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.qris-modal-img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+.qris-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

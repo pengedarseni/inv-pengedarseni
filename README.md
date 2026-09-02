@@ -19,10 +19,11 @@ Website undangan pernikahan digital minimalis & elegan (*quiet luxury editorial*
 6. **Integrasi Google Maps**: Akses navigasi langsung ke lokasi KUA Kuningan.
 ## 🎵 & 📷 Panduan Asset (Foto & Musik)
 
-1. **Foto Pasangan & Hero** (disimpan di folder `img/`):
+1. **Foto Pasangan, Hero & QRIS** (disimpan di folder `img/`):
    - `img/hero.png` : Foto bersama / landscape untuk header utama.
    - `img/yusup.png` : Foto portrait mempelai pria.
    - `img/tika.png` : Foto portrait mempelai wanita.
+   - `img/barcode.jpeg` : Barcode / QRIS Tanda Kasih (Wedding Gift).
 
 2. **Musik Latar / Backsound** (disimpan di folder `audio/`):
    - Simpan file lagu berformat MP3 di: **`audio/music.mp3`**

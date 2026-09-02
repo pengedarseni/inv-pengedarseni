@@ -430,4 +430,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const waLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(waText)}`;
     window.open(waLink, '_blank');
   });
+
+  // 8. QRIS Modal / Lightbox Handler
+  const qrisTrigger = document.getElementById('qrisTrigger');
+  const qrisModal = document.getElementById('qrisModal');
+  const btnCloseQrisModal = document.getElementById('btnCloseQrisModal');
+
+  if (qrisTrigger && qrisModal) {
+    qrisTrigger.addEventListener('click', () => {
+      qrisModal.classList.add('active');
+      qrisModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closeQrisModal() {
+      qrisModal.classList.remove('active');
+      qrisModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    if (btnCloseQrisModal) {
+      btnCloseQrisModal.addEventListener('click', closeQrisModal);
+    }
+
+    qrisModal.addEventListener('click', (e) => {
+      if (e.target === qrisModal) {
+        closeQrisModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && qrisModal.classList.contains('active')) {
+        closeQrisModal();
+      }
+    });
+  }
 });
