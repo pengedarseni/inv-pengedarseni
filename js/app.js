@@ -424,7 +424,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnShareWA = document.getElementById('btnShareWA');
   btnShareWA.addEventListener('click', () => {
     const name = guestShareInput.value.trim() || 'Sahabat/Keluarga';
-    const baseUrl = window.location.origin + window.location.pathname;
+    // Gunakan custom domain resmi undangan.pengedarseni.com
+    const primaryDomain = 'https://undangan.pengedarseni.com';
+    const baseUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+      ? `${window.location.origin}${window.location.pathname}`
+      : `${primaryDomain}/`;
     const shareUrl = `${baseUrl}?to=${encodeURIComponent(name)}`;
     
     const waText = `*Assalamu'alaikum Warahmatullahi Wabarakatuh*\n\nKepada Yth. *${name}*,\n\nDengan memohon rahmat dan ridho Allah SWT, berikut kami sampaikan kabar bahagia terkait rencana pernikahan kami:\n\n*Muhamad Yusup & Tika Oktavia Heningsih*\n\nInfo lengkap & permohonan doa restu dapat dilihat melalui tautan undangan digital berikut:\n${shareUrl}\n\nMerupakan suatu kehormatan bagi kami atas doa restu yang Bapak/Ibu/Saudara/i berikan.\n\n*Wassalamu'alaikum Warahmatullahi Wabarakatuh*\n— Yusup & Tika`;

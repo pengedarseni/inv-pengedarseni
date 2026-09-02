@@ -1,5 +1,18 @@
 {
   "version": 2,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "inv-pengedarseni.vercel.app"
+        }
+      ],
+      "destination": "https://undangan.pengedarseni.com/$1",
+      "permanent": true
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
