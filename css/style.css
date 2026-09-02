@@ -230,43 +230,27 @@ button, input, select, textarea {
   pointer-events: none;
 }
 
-/* Ornate Monogram Seal */
+/* Ornate Royal Wax Stamp Seal */
 .monogram-seal {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 18px;
-  border-radius: 50%;
-  background: var(--gold-gradient);
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 25px var(--gold-glow), 0 0 0 4px rgba(223, 202, 158, 0.2);
   position: relative;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.seal-inner {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: 1px dashed rgba(17, 31, 51, 0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  color: #111F33;
+.monogram-seal:hover {
+  transform: scale(1.06) rotate(-2deg);
 }
 
-.seal-letter {
-  font-family: var(--font-royal);
-  font-weight: 700;
-  font-size: 1.25rem;
-  letter-spacing: 0.5px;
-}
-
-.seal-amp {
-  font-family: var(--font-script);
-  font-size: 1.4rem;
-  line-height: 1;
+.stamp-seal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.45));
 }
 
 .cover-header-group {
@@ -1396,19 +1380,19 @@ button, input, select, textarea {
 }
 
 .footer-seal {
-  width: 50px;
-  height: 50px;
+  width: 58px;
+  height: 58px;
   margin: 0 auto 18px;
-  border-radius: 50%;
-  border: 1px solid var(--gold-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-royal);
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--gold-light);
-  background: rgba(223, 202, 158, 0.1);
+}
+
+.footer-stamp-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
 }
 
 .footer-salam {
