@@ -42,11 +42,24 @@ document.addEventListener('DOMContentLoaded', () => {
     startAudio();
   });
 
-  // 3. Audio Player Engine (Web Audio API Synthesizer + Fallback MP3)
+  // 3. Audio Player Engine (Custom MP3 Audio File with Web Audio API Synth Fallback)
   const audioToggleBtn = document.getElementById('audioToggleBtn');
   let isPlaying = false;
+  let bgAudio = null;
   let audioContext = null;
   let synthInterval = null;
+
+  function initAudioPlayer() {
+    if (!bgAudio) {
+      bgAudio = new Audio();
+      bgAudio.loop = true;
+      bgAudio.preload = 'auto';
+      // Prioritaskan file MP3 di folder audio/music.mp3 (atau music.mp3)
+      bgAudio.src = 'audio/music.mp3';
+    }
+  }
+
+  initAudioPlayer();
 
   function initWebAudio() {
     try {
@@ -59,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Soothing chord progression for wedding ambient (Pachelbel-inspired warm piano/bell tones)
+  // Soothing chord progression for wedding ambient (Pachelbel-inspired warm piano/bell tones fallback)
   const chords = [
     [261.63, 329.63, 392.00, 523.25], // C Major
     [196.00, 246.94, 293.66, 392.00], // G Major
@@ -107,19 +120,40 @@ document.addEventListener('DOMContentLoaded', () => {
     chordIndex = (chordIndex + 1) % chords.length;
   }
 
-  function startAudio() {
+  function startSynth() {
     if (!audioContext) {
       initWebAudio();
     }
     if (audioContext && audioContext.state === 'suspended') {
       audioContext.resume();
     }
+    playNextChord();
+    if (!synthInterval) {
+      synthInterval = setInterval(playNextChord, 3200);
+    }
+  }
 
+  function stopSynth() {
+    if (synthInterval) {
+      clearInterval(synthInterval);
+      synthInterval = null;
+    }
+  }
+
+  function startAudio() {
     if (!isPlaying) {
       isPlaying = true;
       audioToggleBtn.classList.add('playing');
-      playNextChord();
-      synthInterval = setInterval(playNextChord, 3200);
+
+      // Coba putar file MP3 kustom terlebih dahulu
+      if (bgAudio) {
+        bgAudio.play().catch(() => {
+          // Jika file MP3 belum dimasukkan atau autoplay dicegah, gunakan synth synthesizer
+          startSynth();
+        });
+      } else {
+        startSynth();
+      }
     }
   }
 
@@ -127,10 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isPlaying) {
       isPlaying = false;
       audioToggleBtn.classList.remove('playing');
-      if (synthInterval) {
-        clearInterval(synthInterval);
-        synthInterval = null;
+      if (bgAudio) {
+        bgAudio.pause();
       }
+      stopSynth();
     }
   }
 

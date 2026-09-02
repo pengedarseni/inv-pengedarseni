@@ -17,8 +17,16 @@ Website undangan pernikahan digital minimalis & elegan (*quiet luxury editorial*
 4. **Live Countdown Timer**: Hitung mundur otomatis menuju hari pernikahan.
 5. **Simpan ke Google Calendar**: Tombol 1-klik untuk memasukkan agenda ke kalender Google / smartphone.
 6. **Integrasi Google Maps**: Akses navigasi langsung ke lokasi KUA Kuningan.
-7. **Kotak Doa & Ucapan (Wishes Board)**: Tamu dapat menuliskan ucapan selamat & doa restu secara langsung.
-8. **WhatsApp Share Generator**: Generator pesan WhatsApp otomatis untuk membagikan undangan ke daftar kontak.
+## 🎵 & 📷 Panduan Asset (Foto & Musik)
+
+1. **Foto Pasangan & Hero** (disimpan di folder `img/`):
+   - `img/hero.png` : Foto bersama / landscape untuk header utama.
+   - `img/yusup.png` : Foto portrait mempelai pria.
+   - `img/tika.png` : Foto portrait mempelai wanita.
+
+2. **Musik Latar / Backsound** (disimpan di folder `audio/`):
+   - Simpan file lagu berformat MP3 di: **`audio/music.mp3`**
+   - *Catatan*: Jika file MP3 belum dimasukkan, website otomatis memainkan alunan piano ambient lembut bawaan sistem (*built-in Web Audio API synthesizer*).
 
 ---
 
