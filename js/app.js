@@ -54,6 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
       bgAudio = new Audio();
       bgAudio.loop = true;
       bgAudio.preload = 'auto';
+      // Set volume ke 20%
+      bgAudio.volume = 0.20;
       // Prioritaskan file MP3 di folder audio/music.mp3 (atau music.mp3)
       bgAudio.src = 'audio/music.mp3';
     }
@@ -96,9 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
     osc.type = 'sine';
     osc.frequency.setValueAtTime(freq, now);
 
-    // Warm envelope
+    // Warm envelope scaled to 20%
     gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(0.045, now + 0.3);
+    gain.gain.linearRampToValueAtTime(0.012, now + 0.3);
     gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
 
     osc.connect(gain);
