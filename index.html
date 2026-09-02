@@ -13,12 +13,12 @@
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="img/hero.png">
-  <meta name="theme-color" content="#0D2240">
+  <meta name="theme-color" content="#111D2E">
 
-  <!-- Google Fonts: Bricolage Grotesque (Modern Display Sans) & Plus Jakarta Sans (Clean UI Sans) -->
+  <!-- Google Fonts: Great Vibes (Script), Cormorant Garamond (Editorial Luxury Serif), Cinzel (Royal Roman), Plus Jakarta Sans (Clean UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -45,63 +45,95 @@
     </button>
   </div>
 
-  <!-- COVER / OPENING SCREEN -->
+  <!-- COVER / OPENING SCREEN (Royal Envelope Aesthetic) -->
   <div class="cover-overlay" id="coverOverlay">
     <div class="cover-card">
-      <div class="cover-tag">THE WEDDING ANNOUNCEMENT</div>
       
-      <div class="cover-hero-title">
-        <span class="cover-first-name">YUSUP</span>
-        <span class="cover-amp">&amp;</span>
-        <span class="cover-second-name">TIKA</span>
+      <!-- Ornate Gold Monogram Seal -->
+      <div class="monogram-seal">
+        <div class="seal-inner">
+          <span class="seal-letter">Y</span>
+          <span class="seal-amp">&amp;</span>
+          <span class="seal-letter">T</span>
+        </div>
+      </div>
+
+      <div class="cover-header-group">
+        <span class="cover-script-intro">The Wedding of</span>
+        <h1 class="cover-hero-title">
+          <span class="name-part">Yusup</span>
+          <span class="script-amp">&amp;</span>
+          <span class="name-part">Tika</span>
+        </h1>
+        <div class="cover-ornament-line">
+          <span class="line-wing"></span>
+          <span class="ornament-diamond">◆</span>
+          <span class="line-wing"></span>
+        </div>
       </div>
 
       <div class="cover-date-badge">
-        <i data-lucide="calendar" class="badge-icon"></i>
-        <span>09 • 09 • 2026</span>
+        <i data-lucide="calendar-heart" class="badge-icon"></i>
+        <span>RABU, 09 SEPTEMBER 2026</span>
         <span class="dot">•</span>
         <span>KUNINGAN</span>
       </div>
 
+      <!-- Guest Envelope Card -->
       <div class="guest-box">
-        <span class="guest-greeting">Kepada Yth. Bapak/Ibu/Saudara/i:</span>
+        <div class="guest-box-header">
+          <i data-lucide="mail" class="guest-mail-icon"></i>
+          <span class="guest-greeting">Kepada Yth. Bapak/Ibu/Saudara/i:</span>
+        </div>
         <h2 class="guest-name" id="guestNameCover">Tamu Undangan</h2>
         <span class="guest-note">Mohon maaf bila ada kesalahan penulisan nama/gelar</span>
       </div>
 
       <button class="btn-open-invitation" id="btnOpenInvitation" type="button">
+        <i data-lucide="book-open" class="btn-icon-left"></i>
         <span>Buka Undangan</span>
-        <i data-lucide="arrow-right" class="btn-icon"></i>
+        <i data-lucide="sparkles" class="btn-icon-right"></i>
       </button>
+
     </div>
   </div>
 
   <!-- MAIN INVITATION CONTAINER -->
   <main class="invitation-container" id="mainContent">
 
-    <!-- HERO SECTION WITH PHOTO SLOT -->
+    <!-- HERO SECTION WITH FULL-VIEW PHOTO -->
     <header class="hero-section">
-      <div class="hero-photo-container photo-slot">
-        <img src="img/hero.png" alt="Muhamad Yusup & Tika Oktavia Heningsih" class="photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="photo-placeholder">
-          <i data-lucide="image" class="placeholder-icon"></i>
-          <span class="placeholder-text">Foto Bersama &middot; simpan di img/hero.png</span>
+      <div class="hero-photo-wrapper">
+        <div class="hero-photo-frame">
+          <img src="img/hero.png" alt="Muhamad Yusup & Tika Oktavia Heningsih" class="photo-img hero-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="photo-placeholder">
+            <i data-lucide="image" class="placeholder-icon"></i>
+            <span class="placeholder-text">Foto Bersama (img/hero.png)</span>
+          </div>
         </div>
+        <div class="hero-photo-glow"></div>
       </div>
 
       <div class="hero-content">
-        <div class="hero-badge">WEDDING ANNOUNCEMENT</div>
+        <span class="hero-script-tag">Walimatul 'Ursy</span>
         <h1 class="hero-names">
-          <span class="name-block">MUHAMAD YUSUP</span>
+          <span class="name-block">Muhamad Yusup</span>
           <span class="hero-amp-symbol">&amp;</span>
-          <span class="name-block">TIKA OKTAVIA HENINGSIH</span>
+          <span class="name-block">Tika Oktavia Heningsih</span>
         </h1>
         
+        <div class="hero-divider-flourish">
+          <span class="flourish-line"></span>
+          <i data-lucide="heart" class="flourish-icon"></i>
+          <span class="flourish-line"></span>
+        </div>
+
         <div class="hero-meta-bar">
           <div class="meta-item">
             <i data-lucide="calendar"></i>
             <span>Rabu, 9 September 2026</span>
           </div>
+          <div class="meta-separator">•</div>
           <div class="meta-item">
             <i data-lucide="map-pin"></i>
             <span>Kuningan, Jawa Barat</span>
@@ -112,69 +144,82 @@
 
     <!-- SECTION: AYAT & SALAM -->
     <section class="section section-quote">
-      <div class="arabic-text" dir="rtl">
-        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+      <div class="quote-card">
+        <div class="arabic-text" dir="rtl">
+          بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+        </div>
+        <div class="arabic-verse" dir="rtl">
+          وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+        </div>
+        <p class="verse-translation">
+          "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir."
+        </p>
+        <div class="verse-surah">
+          <span>QS. Ar-Rum: 21</span>
+        </div>
       </div>
-      <div class="arabic-verse" dir="rtl">
-        وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
-      </div>
-      <p class="verse-translation">
-        "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir."
-      </p>
-      <span class="verse-surah">QS. Ar-Rum: 21</span>
     </section>
 
-    <!-- SECTION: SALAM & PROFIL MEMPELAI BESERTA FOTO & ORANG TUA -->
+    <!-- SECTION: SALAM & PROFIL MEMPELAI (ARCH CAMEOS & FAMILY DETAILS) -->
     <section class="section section-couple">
-      <div class="section-badge-center">MEMPELAI</div>
+      <div class="section-badge-center">
+        <i data-lucide="heart-handshake"></i>
+        <span>MEMPELAI</span>
+      </div>
       <h2 class="section-title">Assalamu'alaikum Wr. Wb.</h2>
       <p class="section-intro">
-        Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyampaikan kabar bahagia terkait rencana pernikahan kami:
+        Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyampaikan kabar bahagia terkait pernikahan kami:
       </p>
 
       <div class="couple-cards-wrapper">
         
         <!-- Kartu Mempelai Pria -->
         <div class="couple-profile-card">
-          <div class="couple-photo-slot photo-slot">
-            <img src="img/yusup.png" alt="Muhamad Yusup" class="photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="couple-arch-frame">
+            <img src="img/yusup.png" alt="Muhamad Yusup" class="photo-img portrait-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="photo-placeholder mini">
               <i data-lucide="user" class="placeholder-icon"></i>
               <span class="placeholder-text">Foto Yusup (img/yusup.png)</span>
             </div>
+            <div class="arch-inner-border"></div>
           </div>
 
           <div class="profile-details">
-            <span class="role-pill">MEMPELAI PRIA</span>
+            <span class="role-script">Mempelai Pria</span>
             <h3 class="profile-name">Muhamad Yusup</h3>
-            <span class="birth-order">Putra Pertama</span>
+            <span class="birth-order-tag">Putra Pertama</span>
             
             <div class="parents-block">
-              <span class="parents-label">Putra dari pasangan:</span>
+              <span class="parents-label">Putra tercinta dari:</span>
               <strong class="parents-names">Bpk. Ade Suhendi &amp; Ibu Maghfiroh</strong>
             </div>
           </div>
         </div>
 
-        <div class="couple-divider-badge">&amp;</div>
+        <div class="couple-divider-badge">
+          <div class="divider-circle">
+            <span class="script-amp-large">&amp;</span>
+          </div>
+        </div>
 
         <!-- Kartu Mempelai Wanita -->
         <div class="couple-profile-card">
-          <div class="couple-photo-slot photo-slot">
-            <img src="img/tika.png" alt="Tika Oktavia Heningsih" class="photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="couple-arch-frame">
+            <img src="img/tika.png" alt="Tika Oktavia Heningsih" class="photo-img portrait-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="photo-placeholder mini">
               <i data-lucide="user" class="placeholder-icon"></i>
               <span class="placeholder-text">Foto Tika (img/tika.png)</span>
             </div>
+            <div class="arch-inner-border"></div>
           </div>
 
           <div class="profile-details">
-            <span class="role-pill">MEMPELAI WANITA</span>
+            <span class="role-script">Mempelai Wanita</span>
             <h3 class="profile-name">Tika Oktavia Heningsih</h3>
-            <span class="birth-order">Putri Ke-2</span>
+            <span class="birth-order-tag">Putri Ke-2</span>
             
             <div class="parents-block">
-              <span class="parents-label">Putri dari pasangan:</span>
+              <span class="parents-label">Putri tercinta dari:</span>
               <strong class="parents-names">Bpk. Dedy Syarudin &amp; Ibu Ida Ningsih</strong>
             </div>
           </div>
@@ -183,10 +228,13 @@
       </div>
     </section>
 
-    <!-- SECTION: WAKTU & HITUNG MUNDUR (MODERN DIGITAL CARD) -->
+    <!-- SECTION: WAKTU & HITUNG MUNDUR (ROYAL CEREMONY CARD) -->
     <section class="section section-event">
       <div class="event-modern-card">
         <div class="event-card-header">
+          <div class="event-flourish-top">
+            <i data-lucide="sparkles" class="event-star"></i>
+          </div>
           <span class="event-tag">WAKTU &amp; TEMPAT PELAKSANAAN</span>
           <h2 class="event-title">Akad Nikah</h2>
         </div>
@@ -255,13 +303,18 @@
     <!-- SECTION: PEMBERITAHUAN INTIMATE WEDDING -->
     <section class="section section-notice">
       <div class="notice-card">
-        <div class="notice-pill"><i data-lucide="info"></i> PEMBERITAHUAN KHUSUS</div>
+        <div class="notice-pill">
+          <i data-lucide="info"></i>
+          <span>PEMBERITAHUAN KHUSUS</span>
+        </div>
         <p class="notice-lead">
           Mengingat acara ini diselenggarakan secara sederhana dan terbatas (<strong>hanya dihadiri keluarga inti</strong>), kami memohon maaf yang sebesar-besarnya tidak menggelar resepsi dan belum dapat mengundang Bapak/Ibu/Saudara/i untuk hadir di lokasi.
         </p>
-        <div class="notice-separator"></div>
+        <div class="notice-separator">
+          <span>◆ ◆ ◆</span>
+        </div>
         <p class="notice-body">
-          Tanpa mengurangi rasa hormat, kami sangat mengharapkan <strong>doa restu</strong> agar prosesi akad nikah kami berjalan lancar serta membina keluarga yang <em>sakinah, mawaddah, wa rahmah</em>.
+          Tanpa mengurangi rasa hormat, kami sangat mengharapkan <strong>doa restu</strong> dari Bapak/Ibu/Saudara/i agar prosesi akad nikah kami senantiasa dalam ridho-Nya dan melangkah menuju keluarga yang <em>sakinah, mawaddah, wa rahmah</em>.
         </p>
       </div>
     </section>
@@ -269,7 +322,10 @@
     <!-- SECTION: KIRIM DOA & UCAPAN (REALTIME SUPABASE) -->
     <section class="section section-wishes">
       <div class="wishes-header">
-        <span class="section-badge-center">DOA RESTU</span>
+        <div class="section-badge-center">
+          <i data-lucide="heart"></i>
+          <span>DOA RESTU</span>
+        </div>
         <h2 class="section-title">Kirim Doa &amp; Ucapan</h2>
         <p class="section-sub">Tuliskan doa serta ucapan tulus Anda untuk kedua mempelai.</p>
       </div>
@@ -292,12 +348,12 @@
 
         <div class="form-group">
           <label for="wishesMessage" class="form-label">Pesan Doa &amp; Harapan</label>
-          <textarea id="wishesMessage" class="form-textarea" rows="3" placeholder="Tuliskan doa restu..." required></textarea>
+          <textarea id="wishesMessage" class="form-textarea" rows="3" placeholder="Tuliskan doa restu untuk Yusup & Tika..." required></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary btn-block">
           <i data-lucide="send"></i>
-          <span>Kirim Doa &amp; Ucapan</span>
+          <span>Kirim Doa Restu</span>
         </button>
       </form>
 
@@ -305,7 +361,7 @@
       <div class="wishes-board">
         <div class="wishes-board-title">
           <div class="board-label-left">
-            <i data-lucide="message-square"></i>
+            <i data-lucide="message-square-heart"></i>
             <span>Ucapan &amp; Doa Terkirim</span>
           </div>
           <span class="badge-count" id="wishesCount">0</span>
@@ -334,12 +390,15 @@
 
     <!-- FOOTER -->
     <footer class="footer-section">
+      <div class="footer-seal">
+        <span>Y &amp; T</span>
+      </div>
       <p class="footer-salam">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
       <p class="footer-sub">Hormat kami yang berbahagia,</p>
-      <h2 class="footer-couple">YUSUP &amp; TIKA</h2>
+      <h2 class="footer-couple">Yusup &amp; Tika</h2>
       <p class="footer-date">9 September 2026 &middot; Kuningan, Jawa Barat</p>
       <div class="footer-copyright">
-        © 2026 Yusup &amp; Tika Wedding &middot; Designed with Elegance
+        © 2026 Yusup &amp; Tika Wedding &middot; Forever &amp; Always
       </div>
     </footer>
 
