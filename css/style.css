@@ -1306,29 +1306,34 @@ button, input, select, textarea {
   border-radius: 4px;
 }
 
+.wish-card,
 .wish-item {
   background: #FAF8F5;
-  border: 1px solid rgba(197, 168, 128, 0.2);
+  border: 1px solid rgba(197, 168, 128, 0.25);
   border-radius: 16px;
   padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
+.wish-card-header,
 .wish-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
 }
 
+.wish-author,
 .wish-sender {
   font-family: var(--font-serif);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-heading);
 }
 
+.wish-relation,
 .wish-badge {
   font-size: 0.68rem;
   font-weight: 600;
@@ -1336,12 +1341,16 @@ button, input, select, textarea {
   color: var(--text-gold);
   padding: 2px 8px;
   border-radius: 10px;
+  white-space: nowrap;
 }
 
+.wish-content,
 .wish-text {
-  font-size: 0.85rem;
+  font-size: 0.80rem;
   line-height: 1.55;
   color: var(--text-body);
+  margin: 0;
+  word-break: break-word;
 }
 
 .wish-time {
