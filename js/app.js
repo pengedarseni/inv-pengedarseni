@@ -215,8 +215,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. Save to Google Calendar
   const btnSaveCalendar = document.getElementById('btnSaveCalendar');
   btnSaveCalendar.addEventListener('click', () => {
-    const title = encodeURIComponent("Pernikahan Muhamad Yusup & Tika Oktavia Heningsih");
-    const details = encodeURIComponent("Akad Nikah Muhamad Yusup & Tika Oktavia Heningsih. Mohon doa restu untuk membina keluarga yang sakinah, mawaddah, wa rahmah.");
+    const title = encodeURIComponent("Pernikahan Muhamad Yusup & Tika Octavia Heningsih");
+    const details = encodeURIComponent("Akad Nikah Muhamad Yusup & Tika Octavia Heningsih. Mohon doa restu untuk membina keluarga yang sakinah, mawaddah, wa rahmah.");
     const location = encodeURIComponent("KUA Kecamatan Kuningan, Jl. Otista No. 87, Kuningan, Jawa Barat");
     const dates = "20260909T020000Z/20260909T050000Z"; // 09:00 - 12:00 WIB (UTC+7 -> 02:00 UTC)
 
@@ -431,7 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
       : `${primaryDomain}/`;
     const shareUrl = `${baseUrl}?to=${encodeURIComponent(name)}`;
     
-    const waText = `*Assalamu'alaikum Warahmatullahi Wabarakatuh*\n\nKepada Yth. *${name}*,\n\nDengan memohon rahmat dan ridho Allah SWT, berikut kami sampaikan kabar bahagia terkait rencana pernikahan kami:\n\n*Muhamad Yusup & Tika Oktavia Heningsih*\n\nInfo lengkap & permohonan doa restu dapat dilihat melalui tautan undangan digital berikut:\n${shareUrl}\n\nMerupakan suatu kehormatan bagi kami atas doa restu yang Bapak/Ibu/Saudara/i berikan.\n\n*Wassalamu'alaikum Warahmatullahi Wabarakatuh*\n— Yusup & Tika`;
+    const waText = `*Assalamu'alaikum Warahmatullahi Wabarakatuh*\n\nKepada Yth. *${name}*,\n\nDengan memohon rahmat dan ridho Allah SWT, berikut kami sampaikan kabar bahagia terkait rencana pernikahan kami:\n\n*Muhamad Yusup & Tika Octavia Heningsih*\n\nInfo lengkap & permohonan doa restu dapat dilihat melalui tautan undangan digital berikut:\n${shareUrl}\n\nMerupakan suatu kehormatan bagi kami atas doa restu yang Bapak/Ibu/Saudara/i berikan.\n\n*Wassalamu'alaikum Warahmatullahi Wabarakatuh*\n— Yusup & Tika`;
 
     const waLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(waText)}`;
     window.open(waLink, '_blank');

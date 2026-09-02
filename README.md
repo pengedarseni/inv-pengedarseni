@@ -1,6 +1,6 @@
 # Undangan Digital Pernikahan: Yusup & Tika
 
-Website undangan pernikahan digital minimalis & elegan (*quiet luxury editorial*) untuk akad nikah intimate **Muhamad Yusup & Tika Oktavia Heningsih**.
+Website undangan pernikahan digital minimalis & elegan (*quiet luxury editorial*) untuk akad nikah intimate **Muhamad Yusup & Tika Octavia Heningsih**.
 
 ## 📅 Detail Acara
 - **Hari, Tanggal**: Rabu, 9 September 2026
